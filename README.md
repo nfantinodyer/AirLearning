@@ -3,7 +3,7 @@ air learning course repo
 
 each project is split into folders
 
-##Project 1
+## Project 1
 Run connect.py and it will:
 - Read a sample file using the File Reader
 - Clean the text using TextCleaner
