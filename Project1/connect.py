@@ -9,6 +9,7 @@ if __name__ == "__main__":
     fileContents = TextCleaner.remove_extra_spaces(fileContents)
     fileContents = TextCleaner.remove_special_characters(fileContents)
     fileContents = TextCleaner.to_lowercase(fileContents)
+    print(f"File Contents after formatting: \n{fileContents}")
 
     emails = EmailExtraction(fileContents)
     print("Emails Extracted:")
