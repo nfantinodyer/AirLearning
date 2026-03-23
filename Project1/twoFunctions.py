@@ -20,6 +20,14 @@ AAA = exactly 3 uppercase letters
 The function must return:
 a list of valid IDs
 a list of invalid IDs
+
+Create a function that:
+attempts to read a .txt file from disk
+uses try/except to handle errors such as:
+file not found
+invalid encoding
+returns the file content as a string
+returns an error message instead of crashing
 '''
 
 DOMAINS = [".com",".org",".net",".br"]
@@ -50,10 +58,19 @@ def idExtraction(s):
 
     return ids
 
+def fileReader():
+    location = "Project1/sample.txt"
+    try:
+        with open(location,'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        print(f"File does not exist at {location}")
+    except UnicodeDecodeError: #I hope this is the right error for invalid encoding
+        print("Encoding error")
+    return ""
+
 if __name__ == "__main__":
-    fileContents = ""
-    with open("Project1/sample.txt",'r') as file:
-        fileContents = file.read()
+    fileContents = fileReader()
     
     emails = EmailExtraction(fileContents)
     for i in emails:
