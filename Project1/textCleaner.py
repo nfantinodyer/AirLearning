@@ -17,9 +17,9 @@ class TextCleaner():
     
     def remove_extra_spaces(original_text): #removes 2+ spaces
         withoutTwoSpace = ""
-        for i in range(0,len(original_text)-1):
-            if not (original_text[i] == ' ' and original_text[i+1] == ' '):
-                withoutTwoSpace += original_text[i]
+        for i in range(0,len(original_text)-1): #goes through all but the last char since we use i+1
+            if not (original_text[i] == ' ' and original_text[i+1] == ' '): #checks if current and one future is a space
+                withoutTwoSpace += original_text[i] #only adds if not true
         withoutTwoSpace+=original_text[-1:]
 
         return withoutTwoSpace
