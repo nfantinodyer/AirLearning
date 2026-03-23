@@ -58,19 +58,30 @@ def idExtraction(s):
 
     return ids
 
-def fileReader():
-    location = "Project1/sample.txt"
+def fileReader(file):
     try:
-        with open(location,'r') as file:
+        with open(file,'r') as file:
             return file.read()
     except FileNotFoundError:
-        print(f"File does not exist at {location}")
+        print(f"File does not exist at {file}")
     except UnicodeDecodeError: #I hope this is the right error for invalid encoding
         print("Encoding error")
     return ""
 
+def WordFrequencyCounter(s):
+    wordCount = dict()
+    for i in s.split():
+        if wordCount.get(i) == None:
+            wordCount[i] = 1
+        else:
+            wordCount[i] = int(wordCount[i])+1
+            
+    return wordCount
+
 if __name__ == "__main__":
-    fileContents = fileReader()
+
+    location = "Project1/sample.txt"
+    fileContents = fileReader(location)
     
     emails = EmailExtraction(fileContents)
     for i in emails:
@@ -79,3 +90,6 @@ if __name__ == "__main__":
     ids = idExtraction(fileContents)
     for i in ids:
         print(i)
+
+    wordCount = WordFrequencyCounter(fileContents)
+    print(wordCount)
