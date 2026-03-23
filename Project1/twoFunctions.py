@@ -71,6 +71,8 @@ def fileReader(file):
 def WordFrequencyCounter(s):
     wordCount = dict()
     for i in s.lower().split():
+        if re.match(r"[^\w]", i[-1:]):
+            i = i[0:-1]
         if wordCount.get(i) == None:
             wordCount[i] = 1
         else:
