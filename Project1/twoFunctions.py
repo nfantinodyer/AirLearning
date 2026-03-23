@@ -36,10 +36,10 @@ def EmailExtraction(s):
     wordList = s.split()
     emails = []
     for i in wordList:
-        if re.match(r"[^\w]", i[-1:]):
+        if re.match(r"[^\w]", i[-1:]): #Includes all special chars to be removed
             i = i[0:-1]
-        if re.match(r"\w+(.)?\w+@.*", i):
-            if i[-4:] in DOMAINS or i[-3:] in DOMAINS:
+        if re.match(r"\w+(.)?\w+@.*", i): #All normal char plus an option period, with more char then a @
+            if i[-4:] in DOMAINS or i[-3:] in DOMAINS: #Then the domain compare
                 emails.append(i)
 
     return emails
@@ -49,9 +49,9 @@ def IdExtraction(s):
     ids = []
     invalidIds = []
     for i in wordList:
-        if re.match(r"[^\w]", i[-1:]):
+        if re.match(r"[^\w]", i[-1:]): #Includes all special chars to be removed
             i = i[0:-1]
-        if re.match(r"[A-Z]{3}(-)[0-9]{4}",i):
+        if re.match(r"[A-Z]{3}(-)[0-9]{4}",i): #3 capital letters then dash then 4 numbers
             ids.append(i)
         else:
             invalidIds.append(i)
@@ -70,13 +70,13 @@ def FileReader(file):
 
 def WordFrequencyCounter(s):
     wordCount = dict()
-    for i in s.lower().split():
+    for i in s.lower().split(): #making it so case doesnt affect it
         if re.match(r"[^\w]", i[-1:]):
             i = i[0:-1]
-        if wordCount.get(i) == None:
+        if wordCount.get(i) == None: #if not in dictionary
             wordCount[i] = 1
         else:
-            wordCount[i] = int(wordCount[i])+1
+            wordCount[i] = int(wordCount[i])+1 #add 1 
             
     return wordCount
 

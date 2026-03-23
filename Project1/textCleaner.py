@@ -15,11 +15,11 @@ class TextCleaner():
     def __init__(self, original_text):
         self.original_text = original_text
     
-    def remove_extra_spaces(original_text):
+    def remove_extra_spaces(original_text): #removes 2+ spaces
         return re.sub(r"(  )", "", original_text.strip())
     
-    def remove_special_characters(original_text):
+    def remove_special_characters(original_text): #removes all special except ( )(,)(.)(@)(-)
         return re.sub(r"(^[a-z][A-Z][0-9]( )(,)(.)(@)(-))", "", original_text)
     
-    def to_lowercase(original_text):
+    def to_lowercase(original_text): #to lower
         return original_text.lower()
