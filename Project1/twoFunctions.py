@@ -44,7 +44,7 @@ def EmailExtraction(s):
 
     return emails
     
-def idExtraction(s):
+def IdExtraction(s):
     wordList = s.split()
     ids = []
     invalidIds = []
@@ -58,7 +58,7 @@ def idExtraction(s):
 
     return ids
 
-def fileReader(file):
+def FileReader(file):
     try:
         with open(file,'r') as file:
             return file.read()
@@ -83,13 +83,13 @@ def WordFrequencyCounter(s):
 if __name__ == "__main__":
 
     location = "Project1/sample.txt"
-    fileContents = fileReader(location)
+    fileContents = FileReader(location)
     
     emails = EmailExtraction(fileContents)
     for i in emails:
         print(i)
 
-    ids = idExtraction(fileContents)
+    ids = IdExtraction(fileContents)
     for i in ids:
         print(i)
 
