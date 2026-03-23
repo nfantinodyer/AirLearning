@@ -70,7 +70,7 @@ def fileReader(file):
 
 def WordFrequencyCounter(s):
     wordCount = dict()
-    for i in s.split():
+    for i in s.lower().split():
         if wordCount.get(i) == None:
             wordCount[i] = 1
         else:
